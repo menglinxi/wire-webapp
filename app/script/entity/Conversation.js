@@ -625,5 +625,4 @@ z.entity.Conversation = class Conversation {
       verification_state: this.verification_state(),
     };
   }
-}
-;
+};
