@@ -377,16 +377,22 @@
                data-bind="click: clicked_on_verify_later, l10n_text: z.string.auth_posted_verify_later, visible: posted_mode_verify()"></div>
         </div>
 
-        <div id="section-tabs" class="section">
-          <div class="tabs-icon">
-            <div class="icon-error"></div>
+        <div id="section-blocked" class="section">
+          <div class="blocked-icon">
+            <div class="icon-support"></div>
           </div>
-          <div class="form-tabs">
-            <div class="posted-content">
-              <div class="auth-headline" data-bind="l10n_text: z.string.auth_tabs_headline"></div>
-              <div class="auth-headline-sub posted-message-detail" data-bind="l10n_text: z.string.auth_tabs_detail"></div>
+          <div class="form-blocked">
+            <div id="form-blocked-database" class="blocked-content" data-bind="visible: blocked_mode_database">
+              <div class="auth-headline" data-bind="l10n_text: z.string.auth_blocked_database_headline"></div>
+              <div class="auth-headline-sub blocked-message-detail" data-bind="l10n_text: z.string.auth_blocked_database_detail"></div>
+            </div>
+            <div id="form-blocked-tabs" class="blocked-content" data-bind="visible: blocked_mode_tabs">
+              <div class="auth-headline" data-bind="l10n_text: z.string.auth_blocked_tabs_headline"></div>
+              <div class="auth-headline-sub blocked-message-detail" data-bind="l10n_text: z.string.auth_blocked_tabs_detail"></div>
             </div>
           </div>
+          <div id="blocked-link-learn-more" class="auth-text-link blocked-link"
+               data-bind="click: clicked_on_blocked_learn_more, l10n_text: z.string.auth_blocked_link_learn_more"></div>
         </div>
       </div>
     </div>

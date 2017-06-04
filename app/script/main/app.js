@@ -199,7 +199,8 @@ z.main.App = class App {
    * @returns {undefined} No return value
    */
   init_app(is_reload = this._is_reload()) {
-    this._check_single_instance()
+    z.util.check_indexed_db()
+    .then(() => this._check_single_instance())
     .then(() => this._load_access_token(is_reload))
     .then(() => {
       this.view.loading.update_progress(2.5, z.string.init_received_access_token);
@@ -290,8 +291,11 @@ z.main.App = class App {
       }
 
       this.logger.info(error_message, {error});
-      if (error.message === App.CONFIG.COOKIE_ERROR) {
-        return this._redirect_to_login(z.auth.SignOutReason.MULTIPLE_TABS);
+      if (error instanceof z.auth.AuthError) {
+        if (error.type === z.auth.AuthError.TYPE.MULTIPLE_TABS) {
+          return this._redirect_to_login(z.auth.SignOutReason.MULTIPLE_TABS);
+        }
+        return this._redirect_to_login(z.auth.SignOutReason.INDEXED_DB);
       }
 
       this.logger.debug(`App reload: '${is_reload}', Document referrer: '${document.referrer}', Location: '${window.location.href}'`);
@@ -390,7 +394,7 @@ z.main.App = class App {
   _check_single_instance() {
     const cookie_name = App.CONFIG.COOKIE_NAME;
     if (Cookies.get(cookie_name)) {
-      return Promise.reject(new Error(App.CONFIG.COOKIE_ERROR));
+      return Promise.reject(new z.auth.AuthError(z.auth.AuthError.TYPE.MULTIPLE_TABS));
     }
 
     Cookies.set(cookie_name, true);

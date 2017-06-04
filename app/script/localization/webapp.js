@@ -47,6 +47,13 @@ z.string.auth_account_sign_in_phone = 'Phone';
 z.string.auth_account_terms_of_use = 'Terms of Use';
 z.string.auth_account_terms_of_use_detail = 'I accept';
 
+// Authentication: BLOCKED section
+z.string.auth_blocked_database_headline = 'We need a database';
+z.string.auth_blocked_database_detail = 'IndexedDB is not available. We cannot store your messages. You might be using in private mode.';
+z.string.auth_blocked_link_learn_more = 'Learn more';
+z.string.auth_blocked_tabs_headline = 'Wire is so much nicer in a single tab';
+z.string.auth_blocked_tabs_detail = 'You are using Wire in another tab.';
+
 // Authentication: VERIFY section
 z.string.auth_verify_account_add = 'Add';
 z.string.auth_verify_account_detail = 'This lets you use Wire on multiple devices.';
@@ -65,10 +72,6 @@ z.string.auth_limit_description = 'Remove one of your other devices to start usi
 z.string.auth_limit_button_manage = 'Manage devices';
 z.string.auth_limit_button_sign_out = 'Log out';
 z.string.auth_limit_devices_current = '(Current)';
-
-// Authentication: TABS section
-z.string.auth_tabs_headline = 'Wire is so much nicer in a single tab';
-z.string.auth_tabs_detail = 'Wire is already running in another tab in this browser. This will be a mess. Do not try this.';
 
 // Authentication: HISTORY section
 z.string.auth_history_headline = 'It’s the first time you’re using Wire on this device.';
@@ -531,6 +534,8 @@ z.string.url_support_contact_bug = 'https://support.wire.com/hc/en-us/requests/n
 z.string.url_support_history = 'https://support.wire.com/hc/en-us/articles/207834645';
 z.string.url_support_mic_access_denied = 'https://support.wire.com/hc/en-us/articles/202590081';
 z.string.url_support_mic_not_found = 'https://support.wire.com/hc/en-us/articles/202970662';
+z.string.url_support_multiple_tabs = 'https://support.wire.com/hc/en-us/articles/203034811';
+z.string.url_support_private_mode = 'https://support.wire.com/hc/en-us/articles/203034811';
 z.string.url_support_screen_access_denied = 'https://support.wire.com/hc/en-us/articles/202935412';
 z.string.url_support_screen_whitelist = 'https://support.wire.com/hc/en-us/articles/209423889';
 z.string.url_support_usernames = 'https://wire.com/support/username';
